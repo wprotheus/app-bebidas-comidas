@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <TextView
+        android:id="@+id/tvPreferencias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="59dp"
+        android:text="Suas Preferências"
+        android:textAlignment="center"
+        android:textColor="#FF5722"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tilNome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNome"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="122dp"
+        android:layout_marginBottom="113dp"
+        android:hint="Seu nome:"
+        android:textColorHint="#3F51B5"
+        app:layout_constraintBottom_toTopOf="@+id/divisor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilIdade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="31dp"
+        android:textColorHint="#3F51B5"
+        app:counterEnabled="true"
+        app:counterMaxLength="3"
+        android:digits="0123456789"
+        android:maxLength="3"
+        app:layout_constraintBottom_toTopOf="@+id/divisor"
+        app:layout_constraintEnd_toStartOf="@+id/rgSexo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilNome">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/idade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sua idade:"
+            android:digits="0123456789"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:maxLines="1"
+            android:textColor="#3F51B5" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/rgSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="151dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tilIdade"
+        app:layout_constraintTop_toBottomOf="@+id/tilNome">
+
+        <RadioButton
+            android:id="@+id/rbMasculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masculino"
+            android:onClick="onRadioButtonClicked"
+            android:textColor="#3F51B5"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbFeminino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Feminino"
+            android:onClick="onRadioButtonClicked"
+            android:textColor="#3F51B5"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/divisor"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="288dp"
+        android:layout_marginBottom="394dp"
+        android:background="#DAD8D8"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llBebida"
+        android:layout_width="165dp"
+        android:layout_height="269dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="26dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divisor">
+
+        <TextView
+            android:id="@+id/tvBebida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bebida(s) preferida(s):"
+            android:textColor="#FF9800"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/ckbAgua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Água" />
+
+        <CheckBox
+            android:id="@+id/ckbCafe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Café" />
+
+        <CheckBox
+            android:id="@+id/ckbCerveja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Cerveja" />
+
+        <CheckBox
+            android:id="@+id/ckbRefrigerante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Refrigerante" />
+
+        <CheckBox
+            android:id="@+id/ckbTerere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Tereré" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llComida"
+        android:layout_width="175dp"
+        android:layout_height="269dp"
+        android:layout_marginTop="26dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/llBebida"
+        app:layout_constraintTop_toBottomOf="@+id/divisor">
+
+        <TextView
+            android:id="@+id/tvComida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comida(s) preferida(s):"
+            android:textColor="#FF9800"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/ckbAcai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Açaí" />
+
+        <CheckBox
+            android:id="@+id/ckbChurrasco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Churrasco" />
+
+        <CheckBox
+            android:id="@+id/ckbHamburguer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Hambuerguer" />
+
+        <CheckBox
+            android:id="@+id/ckbMassa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Massas" />
+
+        <CheckBox
+            android:id="@+id/ckbPizza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ckbOnClick"
+            android:text="Pizza" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/divisor2"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:background="#DAD8D8"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnviar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="enviarDados"
+        android:text="Enviar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llBebida" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
