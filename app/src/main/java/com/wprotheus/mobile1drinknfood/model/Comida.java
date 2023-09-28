@@ -25,7 +25,6 @@ public class Comida implements Serializable
     @Override
     public String toString()
     {
-        StringBuilder sb = new StringBuilder();
-        return sb.append(nomeComida).toString().replaceAll("(\\],\\[)", "");
+        return nomeComida;
     }
 }

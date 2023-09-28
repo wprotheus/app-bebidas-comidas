@@ -2,14 +2,15 @@ package com.wprotheus.mobile1drinknfood.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Pessoa implements Serializable
 {
     private String nome;
     private String idade;
     private String sexo;
-    private HashSet<Bebida> bebidas = new HashSet<>();
-    private HashSet<Comida> comidas = new HashSet<>();
+    private Set<Bebida> bebidas = new HashSet<>();
+    private Set<Comida> comidas = new HashSet<>();
 
     public Pessoa(){ }
 
@@ -45,20 +46,49 @@ public class Pessoa implements Serializable
         this.sexo = sexo;
     }
 
-    public HashSet<Bebida> getBebidas() {
+    public Set<Bebida> getBebidas() {
         return bebidas;
     }
 
-    public void setBebidas(String bebida) {
-        bebidas.add(new Bebida(bebida));
+    public boolean bebidaIgual(Bebida bebidaSet)
+    {
+        boolean existe = false;
+        for (Bebida b:bebidas)
+        {
+            if(b.getNomeBebida().contains(bebidaSet.getNomeBebida()))
+            {
+                existe = true;
+                break;
+            }
+        }
+        return existe;
     }
 
-    public HashSet<Comida> getComidas() {
+    public void setBebidas(Set<Bebida> bebidas) {
+        this.bebidas = bebidas;
+    }
+
+    public void setComidas(Set<Comida> comidas) {
+        this.comidas = comidas;
+    }
+
+    public boolean comidaIgual(Comida comidaSet)
+    {
+        boolean existe = false;
+        for (Comida c:comidas)
+        {
+            if(c.getNomeComida().contains(comidaSet.getNomeComida()))
+            {
+                existe = true;
+                break;
+            }
+        }
+        return existe;
+    }
+
+    public Set<Comida> getComidas()
+    {
         return comidas;
-    }
-
-    public void setComidas(String comida) {
-        comidas.add(new Comida(comida));
     }
 
     @Override

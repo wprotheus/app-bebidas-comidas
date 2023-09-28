@@ -25,7 +25,6 @@ public class Bebida implements Serializable
     @Override
     public String toString()
     {
-        StringBuilder sb = new StringBuilder();
-        return sb.append(nomeBebida).toString().replaceAll("(\\],\\[)", "");
+        return nomeBebida;
     }
 }
